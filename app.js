@@ -55,3 +55,16 @@ var upload = multer({
 
 app.get(['/process/adduser', '/process/adduser/:name'], rt.adduser);
 app.get('/', rt.index);
+app.get('/board', rt.board);
+app.get('/createRoom', rt.create);
+app.get('/delete/:count', rt.remove)
+app.get('/edit/:count', rt.edit);
+app.get('/editor/:count', rt.editor);
+
+app.post('/process/adduser', upload.array('photo', 1), rt.adduserPost);
+app.post('/process', rt.indexPost);
+app.post('/createRoom', rt.createPost);
+app.post('/delete/:count', rt.removePost);
+app.post('/edit/:count', rt.editPost);
+app.post('/editor/:count', rt.editorPost);
+app.post('/board', rt.boardPost);
